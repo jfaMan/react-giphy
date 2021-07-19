@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
 class Gif extends Component {
-  render() {
+  render(props) {
+    const { id } = this.props
+    const url = `https://media.giphy.com/media/${id}/giphy.gif`
     return (
-    <img
-      src="https://media.giphy.com/media/gG6OcTSRWaSis/giphy.gif"
-      alt="GIF"
-      className="gif"
-    />
+      <img
+        src={url}
+        alt="GIF"
+        className="gif"
+        key="id"
+      />
     );
   }
 }
