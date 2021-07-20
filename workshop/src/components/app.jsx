@@ -10,6 +10,12 @@ class App extends Component {
       selectedId: "gG6OcTSRWaSis",
       ids: ["gG6OcTSRWaSis", "13HgwGsXF0aiGY", "13UZisxBxkjPwI", "zOvBKUUEERdNm"]
     };
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(event) {
+    const newId = event.currentTarget.id;
+    this.setState({ selectedId: newId });
   }
 
   render() {
@@ -23,7 +29,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList ids={ids} />
+          <GifList ids={ids} handleClick={this.handleClick}/>
         </div>
       </div>
     )
