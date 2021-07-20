@@ -3,10 +3,10 @@ import Gif from './gif';
 
 class GifList extends Component {
   render() {
-    const { ids, handleClick } = this.props
+    const { ids, changeSelectedGif } = this.props
     return (
       <div className="gif-list">
-        {ids.map(id =>  <Gif id={id} key={id} handleClick={handleClick} />) }
+        {ids.map(id =>  <Gif id={id} key={id} changeSelectedGif={changeSelectedGif} />) }
       </div>
     );
   }

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 
 class Gif extends Component {
-  render(props) {
-    const { id, handleClick } = this.props
+  handleClick = () => {
+    const { id, changeSelectedGif } = this.props;
+    changeSelectedGif(id);
+  }
+
+  render() {
+    const { id } = this.props
     const url = `https://media.giphy.com/media/${id}/giphy.gif`
     return (
       <img
@@ -10,7 +15,7 @@ class Gif extends Component {
         alt="GIF"
         className="gif"
         id={id}
-        onClick={handleClick}
+        onClick={this.handleClick}
       />
     );
   }
