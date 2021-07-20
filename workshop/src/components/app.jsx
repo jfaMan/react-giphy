@@ -3,6 +3,11 @@ import SearchBar from './searchBar';
 import Gif from './gif';
 import GifList from './gifList';
 
+const giphy = require('giphy-api')({
+  apiKey: 'KsltJNEs1v3QDDVlinP6EFo2GqjFxgRR',
+  https: true
+});
+
 class App extends Component {
   constructor() {
     super();
@@ -18,12 +23,22 @@ class App extends Component {
     });
   }
 
+  changeGifIds = (keyword) => {
+    giphy.search({
+      q: keyword,
+      rating: 'g',
+      limit: 10
+    }, (err, res) => {
+      this.setState({ ids: res.data.map(gif => gif.id) });
+    });
+  }
+
   render() {
     const { ids, selectedId } = this.state;
     return (
       <div>
         <div className="left-scene">
-          <SearchBar />
+          <SearchBar changeGifIds={this.changeGifIds}/>
           <div className="selected-gif">
             <Gif id={selectedId} />
           </div>
