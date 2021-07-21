@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// import SearchBar from 'searchBar';
+import SearchBar from './searchBar';
 import Gif from './gif';
 import GifList from './gifList';
 
@@ -14,7 +14,7 @@ const App = () => {
   return(
     <div>
       <div className="left-scene">
-
+          <SearchBar />
         <div className="selected-gif">
           <Gif id={selectedId}/>
         </div>
