@@ -4,8 +4,13 @@ import Gif from './gif';
 import GifList from './gifList';
 
 const App = () => {
-  const [selectedId] = useState("gG6OcTSRWaSis");
+  const [selectedId, setSelectedId] = useState("gG6OcTSRWaSis");
   const [ids] = useState(["gG6OcTSRWaSis", "13HgwGsXF0aiGY", "13UZisxBxkjPwI", "zOvBKUUEERdNm"]);
+
+  const changeSelectedGif = (newId) => {
+    setSelectedId(newId)
+  };
+
   return(
     <div>
       <div className="left-scene">
@@ -15,7 +20,7 @@ const App = () => {
         </div>
       </div>
       <div className="right-scene">
-        <GifList ids={ids}/>
+        <GifList ids={ids} changeSelectedGif={changeSelectedGif}/>
       </div>
     </div>
   );

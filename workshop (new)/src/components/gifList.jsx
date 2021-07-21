@@ -2,10 +2,10 @@ import React from 'react';
 import Gif from './gif';
 
 const GifList = (props) => {
-  console.log(ids)
+  const {ids, changeSelectedGif} = props;
   return(
     <div className="gif-list">
-      {ids.map(id => <Gif id={id} key={id} />)}
+      {ids.map(id => <Gif id={id} key={id} changeSelectedGif={changeSelectedGif} />)}
     </div>
   );
 };
