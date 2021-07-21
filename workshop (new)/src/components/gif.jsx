@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Gif = () => {
+const Gif = (props) => {
+  const { id } = props;
+  const selectedGif = `https://media.giphy.com/media/${id}/giphy.gif`;
   return(
     <img
       className="gif"
-      src="https://media.giphy.com/media/gG6OcTSRWaSis/giphy.gif"
-      alt="GIF" />
+      src={selectedGif}
+      alt="GIF"
+    />
   );
 };
 
