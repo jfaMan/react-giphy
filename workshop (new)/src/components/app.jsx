@@ -5,6 +5,7 @@ import GifList from './gifList';
 
 const App = () => {
   const [selectedId] = useState("gG6OcTSRWaSis");
+  const [ids] = useState(["gG6OcTSRWaSis", "13HgwGsXF0aiGY", "13UZisxBxkjPwI", "zOvBKUUEERdNm"]);
   return(
     <div>
       <div className="left-scene">
@@ -14,7 +15,7 @@ const App = () => {
         </div>
       </div>
       <div className="right-scene">
-        <GifList />
+        <GifList ids={ids}/>
       </div>
     </div>
   );
