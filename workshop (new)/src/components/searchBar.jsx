@@ -9,7 +9,10 @@ const SearchBar = (props) => {
   }
   return(
     <div className="form-search">
-      <input type="text" onChange={handleChange} />
+      <input
+        type="text"
+        placeholder="Search GIF"
+        onChange={handleChange} />
     </div>
   )
 }

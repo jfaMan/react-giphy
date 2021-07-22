@@ -3,6 +3,11 @@ import SearchBar from './searchBar';
 import Gif from './gif';
 import GifList from './gifList';
 
+const giphy = require('giphy-api')({
+  apiKey: 'KsltJNEs1v3QDDVlinP6EFo2GqjFxgRR',
+  https: true
+});
+
 const App = () => {
   const [selectedId, setSelectedId] = useState("gG6OcTSRWaSis");
   const [ids, setSelectedIds] = useState(["gG6OcTSRWaSis", "13HgwGsXF0aiGY", "13UZisxBxkjPwI", "zOvBKUUEERdNm"]);
@@ -11,10 +16,7 @@ const App = () => {
     setSelectedId(newId)
   };
 
-  const giphy = require('giphy-api')({
-    apiKey: 'KsltJNEs1v3QDDVlinP6EFo2GqjFxgRR',
-    https: true
-  });
+
 
   const changeGifIds = (keyword) => {
       giphy.search({
