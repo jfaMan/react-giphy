@@ -1,9 +1,15 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+
+  const handleChange = (event) => {
+    const {changeGifIds} = props;
+    const input = event.currentTarget.value;
+    changeGifIds(input);
+  }
   return(
     <div className="form-search">
-      <input type="text" />
+      <input type="text" onChange={handleChange} />
     </div>
   )
 }

@@ -6,7 +6,6 @@ const Gif = (props) => {
 
   const handleClick = (event) => {
     const {id, changeSelectedGif} = props;
-    console.log(event)
     changeSelectedGif(id);
   };
 

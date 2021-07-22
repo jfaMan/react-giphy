@@ -5,16 +5,31 @@ import GifList from './gifList';
 
 const App = () => {
   const [selectedId, setSelectedId] = useState("gG6OcTSRWaSis");
-  const [ids] = useState(["gG6OcTSRWaSis", "13HgwGsXF0aiGY", "13UZisxBxkjPwI", "zOvBKUUEERdNm"]);
+  const [ids, setSelectedIds] = useState(["gG6OcTSRWaSis", "13HgwGsXF0aiGY", "13UZisxBxkjPwI", "zOvBKUUEERdNm"]);
 
   const changeSelectedGif = (newId) => {
     setSelectedId(newId)
   };
 
+  const giphy = require('giphy-api')({
+    apiKey: 'KsltJNEs1v3QDDVlinP6EFo2GqjFxgRR',
+    https: true
+  });
+
+  const changeGifIds = (keyword) => {
+      giphy.search({
+        q: keyword,
+        rating: 'g',
+        limit: 10
+      }, (err, res) => {
+        setSelectedIds(res.data.map(gif => gif.id));
+      });
+  };
+
   return(
     <div>
       <div className="left-scene">
-          <SearchBar />
+          <SearchBar changeGifIds={changeGifIds}/>
         <div className="selected-gif">
           <Gif id={selectedId}/>
         </div>
